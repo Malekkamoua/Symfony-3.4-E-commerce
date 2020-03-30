@@ -1,0 +1,11 @@
+details_produit:
+    path:     /details
+    defaults: { _controller: UserBundle:Default:detailsProduit }  
+
+contact:
+    path:     /contacts
+    defaults: { _controller: UserBundle:Default:Contact }  
+
+panier:
+    path:     /panier
+    defaults: { _controller: UserBundle:Default:Panier }  
