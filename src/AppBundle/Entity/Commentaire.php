@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Favoris
+ * Commentaire
  *
- * @ORM\Table(name="favoris")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\FavorisRepository")
+ * @ORM\Table(name="commentaire")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CommentaireRepository")
  */
-class Favoris
+class Commentaire
 {
     /**
      * @var int
@@ -21,11 +21,12 @@ class Favoris
      */
     private $id;
 
-       
-   /**
-    * @ORM\ManyToOne(targetEntity="Produit", inversedBy="bookmarks")
-    */
-    private $produit;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="text_commentaire", type="string", length=255)
+     */
+    private $textCommentaire;
 
     /**
      * @var \DateTime
@@ -35,10 +36,17 @@ class Favoris
     private $date;
 
     /**
-    * @ORM\ManyToOne(targetEntity="User", inversedBy="Favoris")
-    * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-    */
-   private $user;
+     * @ORM\ManyToOne(targetEntity="Produit", inversedBy="reviews")
+     * @ORM\JoinColumn(name="produit_id", referencedColumnName="id")
+     */
+    private $produit;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="Commentaire",cascade={"persist"})
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $user;
+
 
 
     /**
@@ -52,11 +60,35 @@ class Favoris
     }
 
     /**
+     * Set textCommentaire
+     *
+     * @param string $textCommentaire
+     *
+     * @return Commentaire
+     */
+    public function setTextCommentaire($textCommentaire)
+    {
+        $this->textCommentaire = $textCommentaire;
+
+        return $this;
+    }
+
+    /**
+     * Get textCommentaire
+     *
+     * @return string
+     */
+    public function getTextCommentaire()
+    {
+        return $this->textCommentaire;
+    }
+
+    /**
      * Set date
      *
      * @param \DateTime $date
      *
-     * @return Favoris
+     * @return Commentaire
      */
     public function setDate($date)
     {
@@ -80,7 +112,7 @@ class Favoris
      *
      * @param \AppBundle\Entity\Produit $produit
      *
-     * @return Favoris
+     * @return Commentaire
      */
     public function setProduit(\AppBundle\Entity\Produit $produit = null)
     {
@@ -104,7 +136,7 @@ class Favoris
      *
      * @param \AppBundle\Entity\User $user
      *
-     * @return Favoris
+     * @return Commentaire
      */
     public function setUser(\AppBundle\Entity\User $user = null)
     {
