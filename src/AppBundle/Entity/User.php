@@ -15,23 +15,32 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User extends BaseUser
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
+
+    /**
+    * @ORM\Column(name="nom", type="string", length=255, nullable=true)
+    */
+    protected $nom;
+
+    /**
+    * @ORM\Column(name="prenom", type="string", length=255, nullable=true)
+    */
+    protected $prenom;
 
 
     /**
-     * Get id
-     *
-     * @return int
+    * @ORM\Column(name="tel", type="integer", nullable=true)
+     * @Assert\Length(
+     *      min = 8,
+     *      max = 9,
+     *      minMessage = "Votre numéro de telephone ne doit contenir que 8 chiffres ",
+     *      maxMessage = "Votre numéro de telephone ne doit contenir que 8 chiffres "
+     * )
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $tel;
+
 }
- 
