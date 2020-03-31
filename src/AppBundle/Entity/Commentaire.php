@@ -29,6 +29,13 @@ class Commentaire
     private $textCommentaire;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="evaluation", type="integer")
+     */
+    private $evaluation;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
@@ -153,5 +160,29 @@ class Commentaire
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set evaluation
+     *
+     * @param integer $evaluation
+     *
+     * @return Commentaire
+     */
+    public function setEvaluation($evaluation)
+    {
+        $this->evaluation = $evaluation;
+
+        return $this;
+    }
+
+    /**
+     * Get evaluation
+     *
+     * @return integer
+     */
+    public function getEvaluation()
+    {
+        return $this->evaluation;
     }
 }

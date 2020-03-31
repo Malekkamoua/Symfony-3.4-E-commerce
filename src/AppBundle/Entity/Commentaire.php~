@@ -29,6 +29,13 @@ class Commentaire
     private $textCommentaire;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="evaluation", type="integer")
+     */
+    private $evaluation;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
