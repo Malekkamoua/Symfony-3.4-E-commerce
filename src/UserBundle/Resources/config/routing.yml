@@ -2,10 +2,44 @@ details_produit:
     path:     /details
     defaults: { _controller: UserBundle:Default:detailsProduit }  
 
+# ----------------------------------------------------------------------
+
 contact:
     path:     /contacts
     defaults: { _controller: UserBundle:Default:Contact }  
 
-panier:
-    path:     /panier
-    defaults: { _controller: UserBundle:Default:Panier }  
+# ----------------------------------------------------------------------
+
+afficher_commentaires:
+    path:     /activityLog
+    defaults: { _controller: UserBundle:Default:afficherCommentaires }  
+
+# ----------------------------------------------------------------------
+
+afficher_favoris:
+    path:     /panier/
+    defaults: { _controller: UserBundle:Default:afficherFavoris }  
+
+ajouter_favoris:
+    path:     /favoris/{id}
+    defaults: { _controller: UserBundle:Default:ajouterFavoris }  
+
+supprmier_favoris:
+    path:     /favoris/supprimer/{id}
+    defaults: { _controller: UserBundle:Default:supprimerFavoris }  
+
+# ----------------------------------------------------------------------
+
+afficher_panier:
+    path:     /panier/
+    defaults: { _controller: UserBundle:Default:afficherPanier }  
+
+ajouter_panier:
+    path:     /commande/{id}
+    defaults: { _controller: UserBundle:Default:ajouterAuPanier }  
+
+supprimer_panier:
+    path:     /commande/supprimer/{id}
+    defaults: { _controller: UserBundle:Default:supprimerDuPanier }  
+
+# ----------------------------------------------------------------------

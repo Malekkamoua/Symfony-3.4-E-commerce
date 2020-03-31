@@ -6,23 +6,23 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class FavorisType extends AbstractType
+class FactureType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('date')
-        ->add('produit')
-        ->add('user');
+        $builder->add('datePaiement')
+        ->add('total')
+        ->add('achats');
     }/**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Favoris'
+            'data_class' => 'AppBundle\Entity\Facture'
         ));
     }
 
@@ -31,7 +31,7 @@ class FavorisType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_favoris';
+        return 'appbundle_facture';
     }
 
 

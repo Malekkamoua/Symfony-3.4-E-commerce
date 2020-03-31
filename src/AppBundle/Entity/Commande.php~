@@ -29,6 +29,13 @@ class Commande
     private $prix;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="quantite", type="integer", nullable=true)
+     */
+    private $quantite;
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")

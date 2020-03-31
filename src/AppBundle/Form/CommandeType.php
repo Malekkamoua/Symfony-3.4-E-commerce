@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class CommandeType extends AbstractType
@@ -13,7 +14,8 @@ class CommandeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('prix')->add('date')->add('user')->add('produit');
+        $builder->add('quantite')
+        ->add('produit',EntityType::class,array( 'attr'=>array('value'=>"{{produit.nomProduit}}"),'class' => 'AppBundle:Produit'));
     }/**
      * {@inheritdoc}
      */

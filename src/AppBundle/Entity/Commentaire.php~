@@ -161,4 +161,28 @@ class Commentaire
     {
         return $this->user;
     }
+
+    /**
+     * Set evaluation
+     *
+     * @param integer $evaluation
+     *
+     * @return Commentaire
+     */
+    public function setEvaluation($evaluation)
+    {
+        $this->evaluation = $evaluation;
+
+        return $this;
+    }
+
+    /**
+     * Get evaluation
+     *
+     * @return integer
+     */
+    public function getEvaluation()
+    {
+        return $this->evaluation;
+    }
 }
