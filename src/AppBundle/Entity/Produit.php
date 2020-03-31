@@ -148,4 +148,13 @@ class Produit
     {
         return $this->nom_produit;
     }
+
+    public function isFavoreddByUser(User $user){
+        foreach ($this->favoris as $favoris) {
+            if ($favoris->getUser() === $user) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
