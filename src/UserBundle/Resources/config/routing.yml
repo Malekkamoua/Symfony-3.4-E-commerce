@@ -17,7 +17,7 @@ afficher_commentaires:
 # ----------------------------------------------------------------------
 
 afficher_favoris:
-    path:     /panier/
+    path:     /favoris
     defaults: { _controller: UserBundle:Default:afficherFavoris }  
 
 ajouter_favoris:
